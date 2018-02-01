@@ -204,8 +204,8 @@ Invalid_argument exception for instance.
 let rec max_list (lst : int list) : int =
   match lst with
   | [] -> failwith "empty list"
-  | h :: [] -> h
-  | h :: a :: _ -> max h a ;;
+  | [h] -> h
+  | h :: t -> max h (max_list t) ;;
 
 (*......................................................................
 Exercise 9: Define a function zip, that takes two int lists and
